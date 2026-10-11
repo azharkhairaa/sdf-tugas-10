@@ -2,6 +2,15 @@
 
 Software Development Fundamentals. Unit test untuk modul `pricing.py` ditulis dengan PyTest, lalu daya deteksinya diuji lewat tiga mutan buatan.
 
+## Anggota Kelompok
+
+| Nama | NIM |
+|---|---|
+| HALIMAH SUKMAWATY | 25120300037 |
+| KEVIN APRIANTO | 25120300004 |
+| RIDHO MARWANSYAH | 25120300020 |
+| MUHAMMAD AZHAR KHAIRA | 25120300010 |
+
 ## Struktur
 
 ```
@@ -59,9 +68,9 @@ Penggunaan fitur wajib:
 
 ```
 ============================= test session starts ==============================
-platform darwin -- Python 3.12.2, pytest-9.1.1, pluggy-1.6.0 -- /Users/azharkhaira/Documents/azhar/cakrawala/class/wad/task/group/sdf-tugas-10/.venv/bin/python
+platform darwin -- Python 3.12.2, pytest-9.1.1, pluggy-1.6.0 -- /Users/azharkhaira/Documents/azhar/cakrawala/class/sdf/task/sdf-tugas-10/.venv/bin/python
 cachedir: .pytest_cache
-rootdir: /Users/azharkhaira/Documents/azhar/cakrawala/class/wad/task/group/sdf-tugas-10
+rootdir: /Users/azharkhaira/Documents/azhar/cakrawala/class/sdf/task/sdf-tugas-10
 configfile: pytest.ini
 testpaths: tests
 collecting ... collected 25 items
