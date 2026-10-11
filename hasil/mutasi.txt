@@ -1,0 +1,35 @@
+kode asli: 25 passed
+
+M1 hapus penerapan diskon (pricing_no_discount.py)
+    -        return subtotal * (1 - MEMBER_DISCOUNT_RATE)
+    +        return subtotal  # mutan: diskon anggota tidak diterapkan
+  hasil: 3 failed, 22 passed
+  - test_member_gets_ten_percent_discount
+  - test_total_member_taxes_the_discounted_amount
+  - test_member_total_is_below_subtotal
+
+M2 ubah tarif pajak 0.11 ke 0.10 (pricing_tax_changed.py)
+    -TAX_RATE = 0.11
+    +TAX_RATE = 0.10  # mutan: tarif pajak diubah dari 0.11
+  hasil: 5 failed, 20 passed
+  - test_add_tax_adds_eleven_percent[100-111]
+  - test_add_tax_adds_eleven_percent[90000-99900]
+  - test_total_non_member_is_subtotal_plus_tax
+  - test_total_member_taxes_the_discounted_amount
+  - test_member_total_is_below_subtotal
+
+M3 hapus validasi kuantitas (pricing_no_quantity_check.py)
+    -    if quantity <= 0:
+    -        raise ValueError("quantity must be positive")
+    +    # mutan: validasi kuantitas dihapus
+  hasil: 4 failed, 21 passed
+  - test_zero_quantity_raises_value_error
+  - test_negative_quantity_raises_value_error[-1]
+  - test_negative_quantity_raises_value_error[-5]
+  - test_total_rejects_zero_quantity
+
+| Kerusakan buatan | Test yang gagal | Kesimpulan daya deteksi |
+|---|---|---|
+| M1 hapus penerapan diskon | test_member_gets_ten_percent_discount, test_total_member_taxes_the_discounted_amount, test_member_total_is_below_subtotal | terdeteksi, 3 test gagal |
+| M2 ubah tarif pajak 0.11 ke 0.10 | test_add_tax_adds_eleven_percent[100-111], test_add_tax_adds_eleven_percent[90000-99900], test_total_non_member_is_subtotal_plus_tax, test_total_member_taxes_the_discounted_amount, test_member_total_is_below_subtotal | terdeteksi, 5 test gagal |
+| M3 hapus validasi kuantitas | test_zero_quantity_raises_value_error, test_negative_quantity_raises_value_error[-1], test_negative_quantity_raises_value_error[-5], test_total_rejects_zero_quantity | terdeteksi, 4 test gagal |
